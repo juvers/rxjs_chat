@@ -1,12 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react';
 import chatStore from '../store/chat';
 
-const FirstPerson = () => {
+const SecondPerson = () => {
     const [chatState, setChatState] = useState(chatStore.initialState);
     const onFormSubmit = e => {
         e.preventDefault();
         const messageObject = {
-            person: 'first-person',
+            person: 'second-person',
             text: e.target.elements.messageInput.value.trim(),
         };
         chatStore.sendMessage(messageObject);
@@ -18,7 +18,7 @@ const FirstPerson = () => {
     }, [])
     return (
         <div className="container">
-            <h2>Jude</h2>
+            <h2 style={{float: 'right'}}>Simon</h2>
             <div className="chat-box">
                 {chatState.data.map(message => (
                     <div>
@@ -44,4 +44,4 @@ const FirstPerson = () => {
     );
 };
 
-export default FirstPerson;
+export default SecondPerson;
